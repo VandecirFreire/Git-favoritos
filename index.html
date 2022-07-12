@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Github Favoritos</title>
   
   <link rel="stylesheet" href="style.css">
-
-  <title>Github Favoritos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <div id="app">
@@ -15,7 +18,7 @@
       <h1>Github Favoritos</h1>
       <div class="search">
         <!--label serve para acessibilidade-->
-        <label for="input-search">Usuário do Github</label> 
+        <label class="sr-only" for="input-search">Usuário do Github</label> 
         <input id="input-search" type="text" placeholder="Usuário do Github">
         <button>&plus;</button>
       </div>
@@ -32,7 +35,7 @@
       </thead>
       <tbody>
         <tr>
-          <td>
+          <td class="user">
             <img src="https://github.com/vandecirfreire.png" alt="imagem de vandecir freire">
             <a href="https://github.com/vandecirfreire" target="_blank">
               <p>Vandecir Freire</p>
@@ -46,12 +49,12 @@
             46
           </td>
           <td>
-            <button>&times;</button>
+            <button class="remove">&times;</button>
           </td>
         </tr>
 
         <tr>
-          <td>
+          <td class="user">
             <img src="https://github.com/maykbrito.png" alt="imagem de maykbrito">
             <a href="https://github.com/maykbrito" target="_blank">
               <p>Mayk Brito</p>
@@ -65,7 +68,7 @@
             46
           </td>
           <td>
-            <button>&times;</button>
+            <button class="remove">&times;</button>
           </td>
         </tr>
       </tbody>
