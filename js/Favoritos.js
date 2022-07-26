@@ -22,6 +22,10 @@ export class Favoritos {
       }
     ]
   }
+
+  delete(user) {
+    const filteredEntries = this.entries.filter(entry => entry.login !== user.login)
+  }
 }
 
 // classe que vai criar a visualização e eventos do HTML
@@ -46,6 +50,13 @@ export class FavoritosView extends Favoritos {
       row.querySelector('.user span').textContent = user.login
       row.querySelector('.repositorios').textContent = user.public_repos
       row.querySelector('.followers').textContent = user.followers
+
+      row.querySelector('.remove').onclick = () => {
+        const isOk = confirm('Tem certeza que deseja deletar essa linha')
+        if(isOk) {
+          this.delete(user)
+        }
+      }
 
       this.tbody.append(row)
     })
