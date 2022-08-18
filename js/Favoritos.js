@@ -26,9 +26,25 @@ export class Favoritos {
     this.entries = JSON.parse(localStorage.getItem('@github-favorites:')) || []
   }
 
-  async add(username) {
-    const user = await GithubUser.search(username)
+  save() {
+    localStorage.setItem('@github-favorites:', JSON.stringify(this.entries))
+  }
 
+  async add(username) {
+    try {
+      const user = await GithubUser.search(username)
+
+      if(user.login === undefined) {
+        throw new Error('Usuário não encontrado!')
+      }
+
+      this.entries = [user, ...this.entries]
+      this.update()
+      this.save()
+
+    } catch(erro) {
+      alert(erro.message)
+    }
   }
 
   delete(user) {
@@ -36,6 +52,7 @@ export class Favoritos {
 
     this.entries = filteredEntries
     this.update()
+    this.save()
   }
 }
 
